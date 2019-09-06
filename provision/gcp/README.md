@@ -19,4 +19,11 @@ gcloud deployment-manager deployments create rudl-demo-single-node --config sing
 gcloud deployment-manager deployments update rudl-demo-single-node --config single-node-cluster.yml
 ```
 
+Remember: Instances will not be rebooted.
 
+
+## Delete the deployment
+
+```
+gcloud deployment-manager deployments delete rudl-demo-single-node
+```

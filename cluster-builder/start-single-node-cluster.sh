@@ -7,7 +7,6 @@ set -ex
 STACK=$(cat <<EOF
 
 version: "3.7"
-
 services:
   rudl_cloudfront:
     image: infracamp/rudl-cloudfront
@@ -40,15 +39,12 @@ services:
 volumes:
   rudl-principal:
 
-
 networks:
   rudl-cf-net:
     external: true
 
   rudl-principal-net:
     external: false
-
-
 
 EOF
 );
@@ -67,7 +63,7 @@ if [[ $IS_SWARM == 0 ]]
 then
     echo "Not a swarm Member - Initializing swarm"
 
-    # docker swarm init
+    docker swarm init
 
     if [[ $(docker network ls | grep rudl-cf-net) == "" ]]
     then
