@@ -1,7 +1,7 @@
 
 resources:
 - type: compute.v1.instance
-  name: single-node-rudl-03
+  name: single-node-rudl-04
   properties:
     zone: us-central1-f
     machineType: https://www.googleapis.com/compute/v1/projects/talpa-backend/zones/us-central1-f/machineTypes/n1-standard-1
@@ -26,4 +26,4 @@ resources:
             set -ex
             apt-get update && apt-get install -y docker.io curl
             curl -o /tmp/startup.sh "https://raw.githubusercontent.com/infracamp/rudl/master/cluster-builder/start-single-node-cluster.sh" && chmod 700 /tmp/startup.sh
-            /tmp/startup.sh
+            /tmp/startup.sh "single-node-cluster1" "https://github.com/infracamp/rudl-example.git"

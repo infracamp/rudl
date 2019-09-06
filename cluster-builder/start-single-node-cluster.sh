@@ -4,6 +4,10 @@
 set -ex
 
 
+CONF_CLUSTER_NAME=$1
+CONF_REPO_URL=$2
+
+
 STACK=$(cat <<EOF
 
 version: "3.7"
@@ -34,7 +38,10 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "rudl-principal:/mnt"
     networks:
-     - rudl-principal-net
+      - rudl-principal-net
+    environment:
+      - "CONF_CLUSTER_NAME=$CONF_CLUSTER_NAME"
+      - "CONF_REPO_URL=$CONF_REPO_URL"
 
 volumes:
   rudl-principal:
