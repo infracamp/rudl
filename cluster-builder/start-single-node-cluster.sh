@@ -70,7 +70,6 @@ fi
 if [[ $IS_SWARM == 0 ]]
 then
     echo "Not a swarm Member - Initializing swarm"
-
     docker swarm init
 
     if [[ $(docker network ls | grep rudl-cf-net) == "" ]]
@@ -78,6 +77,7 @@ then
          docker network create --attachable --driver overlay rudl-cf-net
     fi;
 
+    pwgen 64 -s -1 | docker secret create rudl_cf_secret -
     echo "$STACK" | docker stack deploy rudl -c -
 
 else

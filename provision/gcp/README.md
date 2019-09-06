@@ -9,14 +9,14 @@ access).
 ## Creating a new deployment
 
 ```
-gcloud deployment-manager deployments create rudl-demo-single-node --config single-node-cluster.yml
+gcloud deployment-manager deployments create rudl-demo-single-node --template single-node-cluster.jinja
 ```
 
 
 ## Updating the existing deployment
 
 ```
-gcloud deployment-manager deployments update rudl-demo-single-node --config single-node-cluster.yml
+gcloud deployment-manager deployments update rudl-demo-single-node --template single-node-cluster.jinja
 ```
 
 Remember: Instances will not be rebooted.

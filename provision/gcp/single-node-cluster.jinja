@@ -27,7 +27,7 @@ resources:
           value: |
             #! /bin/bash
             set -ex
-            apt-get update && apt-get install -y docker.io curl
+            apt-get update && apt-get install -y docker.io curl pwgen
             curl -o /tmp/startup.sh "https://raw.githubusercontent.com/infracamp/rudl/master/cluster-builder/start-single-node-cluster.sh" && chmod 700 /tmp/startup.sh
             /tmp/startup.sh "{{ CONF_CLUSTER_NAME }}" "{{ CONF_REPO_URL }}"
             echo {{ env["rudl-principal-secret"] }}
