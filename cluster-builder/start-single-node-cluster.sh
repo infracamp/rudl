@@ -55,6 +55,8 @@ volumes:
 secrets:
   rudl_cf_secret:
     external: true
+  rudl_principal_secret:
+    external: true
 
 networks:
   rudl-cf-net:
