@@ -1,3 +1,6 @@
+{% set CONF_CLUSTER_NAME = "single-node-cluster1" %}
+{% set CONF_REPO_URL = "https://github.com/infracamp/rudl-example.git" %}
+
 
 resources:
 - type: compute.v1.instance
@@ -26,4 +29,5 @@ resources:
             set -ex
             apt-get update && apt-get install -y docker.io curl
             curl -o /tmp/startup.sh "https://raw.githubusercontent.com/infracamp/rudl/master/cluster-builder/start-single-node-cluster.sh" && chmod 700 /tmp/startup.sh
-            /tmp/startup.sh "single-node-cluster1" "https://github.com/infracamp/rudl-example.git"
+            /tmp/startup.sh "{{ CONF_CLUSTER_NAME }}" "{{ CONF_REPO_URL }}"
+            echo {{ env["rudl-principal-secret"] }}

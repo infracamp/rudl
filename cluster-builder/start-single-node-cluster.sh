@@ -8,11 +8,12 @@ CONF_CLUSTER_NAME=$1
 CONF_REPO_URL=$2
 
 
+
 STACK=$(cat <<EOF
 
 version: "3.7"
 services:
-  rudl_cloudfront:
+  rudl-cloudfront:
     image: infracamp/rudl-cloudfront
     deploy:
       mode: global
@@ -29,7 +30,7 @@ services:
       - rudl-cf-net
       - rudl-principal-net
 
-  rudl_principal:
+  rudl-principal:
     image: infracamp/rudl-principal
     deploy:
       placement:
