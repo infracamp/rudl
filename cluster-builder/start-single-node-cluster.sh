@@ -47,6 +47,7 @@ services:
       - "CONF_REPO_URL=$CONF_REPO_URL"
     secrets:
       - rudl_cf_secret
+      - rudl_principal_secret
 
 volumes:
   rudl-principal:
@@ -86,6 +87,8 @@ then
     fi;
 
     pwgen 64 -s -1 | docker secret create rudl_cf_secret -
+    pwgen 64 -s -1 | docker secret create rudl_principal_secret -
+
     echo "$STACK" | docker stack deploy rudl -c -
 
 else
