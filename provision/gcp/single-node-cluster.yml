@@ -1,7 +1,7 @@
 
 resources:
 - type: compute.v1.instance
-  name: single-node-rudl-02
+  name: single-node-rudl-03
   properties:
     zone: us-central1-f
     machineType: https://www.googleapis.com/compute/v1/projects/talpa-backend/zones/us-central1-f/machineTypes/n1-standard-1
