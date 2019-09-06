@@ -29,6 +29,8 @@ services:
     networks:
       - rudl-cf-net
       - rudl-principal-net
+    secrets:
+      - rudl_cf_secret
 
   rudl-principal:
     image: infracamp/rudl-principal
@@ -43,9 +45,15 @@ services:
     environment:
       - "CONF_CLUSTER_NAME=$CONF_CLUSTER_NAME"
       - "CONF_REPO_URL=$CONF_REPO_URL"
+    secrets:
+      - rudl_cf_secret
 
 volumes:
   rudl-principal:
+
+secrets:
+  rudl_cf_secret:
+    external: true
 
 networks:
   rudl-cf-net:
