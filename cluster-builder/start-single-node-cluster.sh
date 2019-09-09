@@ -37,6 +37,8 @@ services:
     deploy:
       placement:
         constraints: [node.role == manager]
+    ports:
+      - "4444:80"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "rudl-principal:/mnt"
